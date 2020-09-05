@@ -19,16 +19,16 @@ const perspective = require('./perspective.js');
 
 require('dotenv').config();
 
-// Set your emoji "awards" here
 const emojiMap = {
-  'FLIRTATION': '💋',
+  'FLIRTATION': '💕',
+  'IDENTITY_ATTACK': '⚠️',
   'TOXICITY': '🧨',
   'INSULT': '👊',
   'INCOHERENT': '🤪',
-  'SPAM': '🐟',
-};
+  'SPAM': '🗑',
+}; 
 
-// Store some state about user karma.
+// Store some state about user sentiment
 // TODO: Migrate to a DB, like Firebase
 const users = {};
 
@@ -41,7 +41,7 @@ async function kickBaddie(user, guild) {
   const member = guild.member(user);
   if (!member) return;
   try {
-    await member.kick('Was a jerk');
+    await member.kick('was bad :(');
   } catch (err) {
     console.log(`Could not kick user ${user.username}: ${err}`);
   }
@@ -79,9 +79,9 @@ async function evaluateMessage(message) {
 
 /**
  * Writes current user scores to the channel
- * @return {string} karma - printable karma scores
+ * @return {string} sentiment - printable sentiment scores
  */
-function getKarma() {
+function getSentiment() {
   const scores = [];
   for (const user in users) {
     if (!Object.keys(users[user]).length) continue;
@@ -132,10 +132,10 @@ client.on('message', async (message) => {
 
 
   if (message.content.startsWith('!karma')) {
-    const karma = getKarma(message);
-    message.channel.send(karma ? karma : 'No karma yet!');
+    const sentiment = getSentiment(message);
+    message.channel.send(sentiment ? sentiment : 'No sentiment yet!');
   }
 });
 
-// Log our bot in using the token from https://discordapp.com/developers/applications/me
+// Log out bot in using the token from https://discordapp.com/developers/applications/me
 client.login(process.env.DISCORD_TOKEN);
