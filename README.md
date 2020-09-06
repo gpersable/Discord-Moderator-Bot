@@ -79,9 +79,9 @@ const attributeThresholds = {
 
 `DISCORD_TOKEN="YOUR TOKEN HERE"`
 
-10. Now you should be able to run your Discord bot from the command line. In the folder, `makcing_with_ml/discord_moderator`, run:
+10. Now you should be able to run your Discord bot from the command line. In the folder, `making_with_ml/discord_moderator`, run:
 
-`node discord.js`
+`npm install` then `node discord.js`
 
 It should print `I am ready!` to your terminal.
 
@@ -106,11 +106,11 @@ for toxic phrases and a 👊 emoji for insults. You can configure these reaction
 ```
 // Set your emoji "awards" here
 const emojiMap = {
-  'FLIRTATION': '💋',
+  'FLIRTATION': '💕',
   'TOXICITY': '🧨',
   'INSULT': '👊',
   'INCOHERENT': '🤪',
-  'SPAM': '🐟',
+  'SPAM': '🗑',
 };
 ```
 
