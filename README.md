@@ -17,7 +17,7 @@ To run this bot yourself, you'll need a [Google Cloud account](https://cloud.goo
 
 Let's get started.
 
-1. Download the [Making with ML repo](https://github.com/dalequark/making_with_ml):
+1. Simply clone this repo or download the [Making with ML repo](https://github.com/dalequark/making_with_ml):
 
 `git clone git@github.com:dalequark/making_with_ml.git`
 
